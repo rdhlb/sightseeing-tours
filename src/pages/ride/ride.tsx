@@ -18,14 +18,14 @@ import { Offers } from '../../components/offers/offers';
 
 const durationOptions = Array.from(Array(10), (v, key) => key + 1).map(String);
 
-const isVanOrFirstClass = (offer: RideOffer) =>
+const isLuxuryOffer = (offer: RideOffer) =>
   ['FIRST_CLASS', 'BUSINESS_VAN'].includes(offer.vehicleType.name);
 
 export const Ride: React.FC = () => {
   const { setSearchQuery, searchResults, isSearchLoading } = useSearchLocations();
   const { setLocation, setStartDate, setDuration, isValidSet, rideData } = useRideDataReducer();
   const { fetchOffers, offers, loading: areOffersLoading } = useFetchOffers(rideData);
-  const vanAndFirstClassOffers = offers.filter(isVanOrFirstClass);
+  const luxuryOffers = offers.filter(isLuxuryOffer);
 
   return (
     <>
@@ -102,7 +102,7 @@ export const Ride: React.FC = () => {
           <CircularProgress />
         </OffersLoadingContainer>
       ) : (
-        <Offers items={vanAndFirstClassOffers} />
+        <Offers items={luxuryOffers} />
       )}
     </>
   );
