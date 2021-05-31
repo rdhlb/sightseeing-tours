@@ -1,11 +1,6 @@
 import { CurrencyCode } from '../../constants';
 import { AccountsByCurrency } from '../../hooks/useAccountsReducer';
-import { Container } from './balance.styled';
-
-type OptionType = {
-  label: string;
-  value: string;
-};
+import { Container } from './booking.styled';
 
 type Props = {
   activeAccount: CurrencyCode;
@@ -13,6 +8,6 @@ type Props = {
   setActiveAccount: (value: CurrencyCode) => void;
 };
 
-export const Balance: React.FC<Props> = ({ activeAccount, accounts, setActiveAccount }) => {
+export const Booking: React.FC<Props> = ({ activeAccount, accounts, setActiveAccount }) => {
   return <Container>asd</Container>;
 };
