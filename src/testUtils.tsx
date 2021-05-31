@@ -1,10 +1,12 @@
-import React, { FC, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-// import { ThemeProvider } from 'my-ui-lib'
+import { ThemeProvider } from 'styled-components';
+import { createMuiTheme } from '@material-ui/core/styles';
+
+const customTheme = createMuiTheme();
 
 const AllTheProviders: FC = ({ children }) => {
-  return <div>children</div>;
-  // return <ThemeProvider theme="light">{children}</ThemeProvider>;
+  return <ThemeProvider theme={customTheme}>{children}</ThemeProvider>;
 };
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) =>
