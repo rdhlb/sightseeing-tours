@@ -6,6 +6,7 @@ import DateFnsUtils from '@material-ui/pickers/adapter/date-fns';
 import { LocalizationProvider } from '@material-ui/pickers';
 
 import { Ride } from './pages/ride/ride';
+import { Header } from './components/header';
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -29,6 +30,7 @@ function App() {
         <MuiThemeProvider theme={theme}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <Header />
             <Ride />
           </ThemeProvider>
         </MuiThemeProvider>

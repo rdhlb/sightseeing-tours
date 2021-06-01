@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
-import { RideLocation } from './useSearchLocations';
 import { add } from 'date-fns';
+import { RideLocation } from '../api/locations';
+import { getCurrentDate } from '../utils';
 
 export enum RideType {
   Duration = 'DURATION',
@@ -10,7 +11,7 @@ const initialState: State = {
   type: RideType.Duration,
   duration: 1,
   location: null,
-  startDate: add(new Date(), { days: 1 }),
+  startDate: add(getCurrentDate(), { days: 1 }),
 };
 
 export interface RideData {

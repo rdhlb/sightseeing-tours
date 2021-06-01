@@ -3,8 +3,7 @@ import { DateTimePicker } from '@material-ui/pickers';
 import React from 'react';
 import { CircularProgress, Typography } from '@material-ui/core';
 
-import { RideLocation, useSearchLocations } from '../../hooks/useSearchLocations';
-import { Header } from '../../components/header';
+import { useSearchLocations } from '../../hooks/useSearchLocations';
 import { useRideDataReducer } from '../../hooks/useRideDataReducer';
 import {
   AutocompleteStyledField,
@@ -13,8 +12,10 @@ import {
   OptionContainer,
   OffersLoadingContainer,
 } from './ride.styled';
-import { RideOffer, useFetchOffers } from '../../hooks/useFetchOffers';
+import { useFetchOffers } from '../../hooks/useFetchOffers';
 import { Offers } from '../../components/offers/offers';
+import { RideOffer } from '../../api/offers';
+import { RideLocation } from '../../api/locations';
 
 const durationOptions = Array.from(Array(10), (v, key) => key + 1).map(String);
 
@@ -29,7 +30,6 @@ export const Ride: React.FC = () => {
 
   return (
     <>
-      <Header />
       <Booking>
         <Autocomplete
           freeSolo

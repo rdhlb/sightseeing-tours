@@ -3,7 +3,7 @@ import App from './App';
 import { render } from './testUtils';
 
 describe('App', () => {
-  test('renders', async () => {
+  test('renders header', async () => {
     render(<App />);
 
     await waitFor(() => {

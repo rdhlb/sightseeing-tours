@@ -1,6 +1,6 @@
 import { Typography } from '@material-ui/core';
 import { FC } from 'react';
-import { RideOffer } from '../../hooks/useFetchOffers';
+import { RideOffer } from '../../api/offers';
 import {
   Container,
   Item,
