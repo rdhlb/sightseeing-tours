@@ -63,3 +63,9 @@ export const SelectButton = styled(Button)`
   margin-top: ${(props) => props.theme.spacing(1)}px;
   color: ${(props) => props.theme.palette.secondary.main};
 `;
+
+export const ErrorContainer = styled.div`
+  padding: ${(props) => props.theme.spacing(2)}px;
+  display: flex;
+  justify-content: center;
+`;

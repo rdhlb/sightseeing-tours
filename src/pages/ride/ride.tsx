@@ -25,7 +25,12 @@ const isLuxuryOffer = (offer: RideOffer) =>
 export const Ride: React.FC = () => {
   const { setSearchQuery, searchResults, isSearchLoading } = useSearchLocations();
   const { setLocation, setStartDate, setDuration, isValidSet, rideData } = useRideDataReducer();
-  const { fetchOffers, offers, loading: areOffersLoading } = useFetchOffers(rideData);
+  const {
+    fetchOffers,
+    offers,
+    loading: areOffersLoading,
+    error: offersError,
+  } = useFetchOffers(rideData);
   const luxuryOffers = offers.filter(isLuxuryOffer);
 
   return (
@@ -102,7 +107,7 @@ export const Ride: React.FC = () => {
           <CircularProgress />
         </OffersLoadingContainer>
       ) : (
-        <Offers items={luxuryOffers} />
+        <Offers items={luxuryOffers} error={offersError?.message} />
       )}
     </>
   );

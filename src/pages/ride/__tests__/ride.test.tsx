@@ -100,4 +100,6 @@ describe('Ride Experience', () => {
       expect(screen.getByRole('button', { name: /select/i })).toBeVisible();
     });
   });
+
+  it.todo('renders error message in case of error');
 });

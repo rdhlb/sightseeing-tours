@@ -11,13 +11,25 @@ import {
   BenefitsItem,
   StyledCheckMarkIcon,
   SelectButton,
+  ErrorContainer,
 } from './offers.styled';
 
 type Props = {
   items: RideOffer[];
+  error?: string;
 };
 
-export const Offers: FC<Props> = ({ items }) => {
+export const Offers: FC<Props> = ({ items, error }) => {
+  if (error) {
+    return (
+      <ErrorContainer>
+        <Typography align="center" color="error" variant="h6">
+          {error} <p>Try another location</p>
+        </Typography>
+      </ErrorContainer>
+    );
+  }
+
   return (
     <Container>
       {items.map(({ offerIdentifier, vehicleType, amount, currency }) => {
